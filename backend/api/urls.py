@@ -7,6 +7,4 @@ urlpatterns = [
     path(
         "change-password/", views.ChangePasswordView.as_view(), name="change_password"
     ),
-    # path('notes/', views.NoteListCreateView.as_view(), name='note-list'),
-    # path('notes/delete/<int:pk>/', views.NoteDeleteView.as_view(), name='note-delete'),
 ]
