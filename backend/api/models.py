@@ -9,6 +9,7 @@ class CustomUser(AbstractUser):
         return self.username
 
 
+""" 
 class Note(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -19,3 +20,4 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+ """

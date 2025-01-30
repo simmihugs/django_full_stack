@@ -8,11 +8,12 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from .serializers import (
     UserSerializer,
-    NoteSerializer,
+    # NoteSerializer,
     LoginSerializer,
     ChangePasswordSerializer,
 )
-from .models import Note
+
+# from .models import Note
 import random
 import string
 from django.core.mail import send_mail
@@ -21,7 +22,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-
+"""
 class NoteListCreateView(generics.ListCreateAPIView):
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
@@ -42,6 +43,7 @@ class NoteDeleteView(generics.DestroyAPIView):
 
     def get_queryset(self):
         return Note.objects.filter(author=self.request.user)
+"""
 
 
 class RegisterView(generics.CreateAPIView):
