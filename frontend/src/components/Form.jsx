@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import "../styles/Form.css";
 
@@ -46,27 +46,40 @@ function Form({ route, method }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-label">
-      <h1>{name}</h1>
-      {error && <div className="error-message">{error}</div>}
-      <input
-        className="form-input"
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        className="form-input"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className="form-input" type="submit" disabled={loading}>
-        {name}
-      </button>
-    </form>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} className="form-label">
+        <h1>{name}</h1>
+        {error && <div className="error-message">{error}</div>}
+        <input
+          className="form-input"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          className="form-input"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="form-input" type="submit" disabled={loading}>
+          {name}
+        </button>
+      </form>
+      <p className="form-hint">
+        {method === "login" ? (
+          <>
+            Don't have an account? <Link to="/register">Register here</Link>
+          </>
+        ) : (
+          <>
+            Already have an account? <Link to="/login">Login here</Link>
+          </>
+        )}
+      </p>
+    </div>
   );
 }
 
